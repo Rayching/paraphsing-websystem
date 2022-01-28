@@ -48,5 +48,5 @@ uvicorn app:app --reload
 
 ## Acknowledgement
 
-This theme is an extened work based on [Prithivira](https://github.com/PrithivirajDamodaran/Parrot_Paraphraser)
+This theme is an extened work based on [PrithivirajDamodaran/Parrot_Paraphraser](https://github.com/PrithivirajDamodaran/Parrot_Paraphraser)
 
