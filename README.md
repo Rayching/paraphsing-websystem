@@ -12,7 +12,7 @@
    ```shell
    git clone https://github.com/Rayching/paraphsing-websystem.git
    ```
-2. 
+2. run the app.py
    ```shell
    uvicorn app:app --reload
    ```
