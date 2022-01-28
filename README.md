@@ -1,16 +1,21 @@
-# {{ cookiecutter.project_name }}
+# paraphsing-websystem
 
-{{ cookiecutter.project_short_description }}
+線上英文文章改寫系統
 
-## Features
+此專案藉由Prithivida撰寫的parrot並且把它線上化
 
-- TODO
 
-## Usage
+## Quick Start
 
-```shell
-docker-compose up --detach
-```
+1. fork the repositories
+
+   ```shell
+   git clone https://github.com/Rayching/paraphsing-websystem.git
+   ```
+2. 
+  ```shell
+  uvicorn app:app --reload
+  ```
 
 ## Development
 
@@ -28,7 +33,18 @@ pip install -r requirements.txt
 uvicorn app:app --reload
 ```
 
-## Credits
+### File Description
+```
+.
+├── requirements.txt 
+├── app.py  // 由此程式啟動其他
+├── static\js
+│   └── para.js
+└── templates
+    └── para.html // 台北
+    
+### Result
+![Result](https://user-images.githubusercontent.com/44884255/151491868-e3b8d43f-98e1-492c-92f4-d129b4c16287.png)
 
-- Main Author: {{ cookiecutter.author_name }}
-- System: Created with [cookiecutter](https://github.com/cookiecutter/cookiecutter) and the [NCHU-NLP-Lab/nlp-omega-demo](https://github.com/NCHU-NLP-Lab/nlp-omega-demo) template.
+## References
++ [Prithivira](https://github.com/PrithivirajDamodaran/Parrot_Paraphraser#references)
