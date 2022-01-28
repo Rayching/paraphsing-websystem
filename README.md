@@ -13,9 +13,9 @@
    git clone https://github.com/Rayching/paraphsing-websystem.git
    ```
 2. 
-  ```shell
-  uvicorn app:app --reload
-  ```
+   ```shell
+   uvicorn app:app --reload
+   ```
 
 ## Development
 
