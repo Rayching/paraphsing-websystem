@@ -82,49 +82,6 @@ async def page(request: Request, page_name: str):
     return templates.TemplateResponse(f"{page_name}.html", {"request": request})
 
 
-#
-# NER
-#
-
-
-@app.post("/ner")
-async def ner(
-    ner_request: NERRequest = Body(
-        None,
-        examples={
-            "Example 1": {
-                "value": {"sentance": "My name is Wolfgang and I live in Berlin"}
-            },
-            "Example 2": {
-                "value": {"sentance": "My name is Sarah and I live in London"}
-            },
-            "Example 3": {
-                "value": {
-                    "sentance": "My name is Clara and I live in Berkeley, California."
-                }
-            },
-        },
-    )
-):
-    results = ner_pipeline(ner_request.sentance)
-    validated = [NERItem(**item) for item in results]
-    return validated
-
-@app.post("/qa")
-async def qa(
-    qa_request: QARequest = Body(
-        None,
-        
-    )
-):
-    print(qa_request)
-    model_input={
-        "question":qa_request.maintext,
-        "context":qa_request.subtext
-    }
-    results = generation_pipeline(model_input)
-    # validated = [NERItem(**item) for item in results]
-    return results
 
 @app.post("/para")
 async def para(
@@ -133,26 +90,15 @@ async def para(
     )
 ):
     print("para_request",para_request)
-    # model_input={
-    #     "sentence":para_request.sentance
-    # }
-
-    # results = generation_pipeline(model_input)
-    # sel_para = simple_parrot(para_request.sentance)
-    
     para_phrases = parrot.augment(input_phrase=para_request.sentance,
                             use_gpu = False,
                             diversity_ranker="levenshtein",
-                            # do_diverse = False, 
                             do_diverse = True, 
                             max_return_phrases = 10, 
-                            #truncation = True,
                             max_length=512, 
                             adequacy_threshold = 0.30,  
                             fluency_threshold = 0.30)
-    # validated = [NERItem(**item) for item in results]
     print(para_phrases)
-    # sel_para = para_phrases[len(para_phrases)-1][0]
     sel_para = para_phrases[0][0]
     print("sel_para",sel_para)
     return sel_para
