@@ -46,6 +46,7 @@ uvicorn app:app --reload
 ### Result
 ![Result](https://user-images.githubusercontent.com/44884255/151491868-e3b8d43f-98e1-492c-92f4-d129b4c16287.png)
 
-## References
-+ [Prithivira](https://github.com/PrithivirajDamodaran/Parrot_Paraphraser#references)
+## Acknowledgement
+
+This theme is an extened work based on [Prithivira](https://github.com/PrithivirajDamodaran/Parrot_Paraphraser#references)
 
