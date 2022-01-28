@@ -1,0 +1,16 @@
+# docker-compose up --detach --build
+version: "3.8"
+
+services:
+  api:
+    build: "."
+    container_name: "{{ cookiecutter.docker_repo_name }}"
+    image: "{{ cookiecutter.docker_username }}/{{ cookiecutter.docker_repo_name }}"
+    restart: always
+    ports:
+      - "{{ range(1, 65536) | random }}:8000"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
